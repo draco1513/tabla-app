@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TablaService } from '../tabla-service.service';
 import { format } from 'date-fns';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
@@ -12,6 +15,23 @@ export class TablaComponent implements OnInit {
   fechaIngresada: string = '';
 
   constructor(private tablaService: TablaService) { }
+  exportToExcel() {
+    // Convertir los datos en formato de hoja de cálculo de Excel
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.data);
+
+    // Crear un libro de Excel y añadir la hoja de cálculo
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Datos');
+
+    // Generar el archivo Excel
+    const excelBuffer: any = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+
+    // Guardar el archivo usando file-saver
+    const fechaFormateada = this.formatDate(new Date().toISOString());
+    const excelFileName = `datos_${fechaFormateada}.xlsx`;
+    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    saveAs(blob, excelFileName);
+  }
 
   ngOnInit() {
 
