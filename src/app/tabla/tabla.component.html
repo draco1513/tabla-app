@@ -45,32 +45,37 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of data">
-      <td>{{ item.CODIGOTCHN }}</td>
-      <td>{{ item.CMONEDA }}</td>
-      <td>{{ item.ndocumento }}</td>
-      <td>{{ item.tapaterno }}</td>
-      <td>{{ item.tamaterno }}</td>
-      <td>{{ item.tnombres }}</td>
-      <td>{{ item.dnacimiento }}</td>
-      <td>{{ item.tdireccion }}</td>
-      <td>{{ item.cubigeo }}</td>
+      <td>{{ item.codigoId }}</td>
+      <td>{{ item.moneda }}</td>
+      <td>{{ item.documento }}</td>
+      <td>{{ item.aPaterno }}</td>
+      <td>{{ item.aMaterno }}</td>
+      <td>{{ item.nombres }}</td>
+      <td>{{ item.fechaNacimiento }}</td>
+      <td>{{ item.direccion }}</td>
+      <td>{{ item.ubigeo }}</td>
       <td>{{ item.departamento }}</td>
       <td>{{ item.provincia }}</td>
-      <td>{{ item.distrito }}</td>
-      <td>{{ item.cinmueble }}</td>
+      <td>{{ item.distrto }}</td>
+      <td>{{ item.inmueble }}</td>
       <td>{{ item.actividad }}</td>
-      <td>{{ item.cuotasatrasdas }}</td>
+      <td>{{ item.cuotasAtrasada }}</td>
       <td>{{ item.estado }}</td>
-      <td>{{ item.SUELDO }}</td>
-      <td>{{ item.fdesembolso }}</td>
-      <td>{{ item.tipooperacion }}</td>
-      <td>{{ item.S_INFOCORP }}</td>
-      <td>{{ item.NVALORIZACION }}</td>
-      <td>{{ item.V_EDIFICACION }}</td>
-      <td>{{ item.V_PROPIEDAD }}</td>
-      <td>{{ item.V_COMERCIAL }}</td>
-      <td>{{ item.V_REALIZACIONSOL }}</td>
-      <td>{{ item.V_REALIZACIONDOL }}</td>
+      <td>{{ item.cuota }}</td>
+      <td>{{ item.sueldo }}</td>
+      <td>{{ item.fechaDesembolso }}</td>
+      <td>{{ item.tipoOperacion }}</td>
+      <td>{{ item.infocorp }}</td>
+      <td>{{ item.nValorizacion }}</td>
+      <td>{{ item.vEdificacion }}</td>
+      <td>{{ item.vPropiedad }}</td>
+      <td>{{ item.vComercial }}</td>
+      <td>{{ item.vRealizacionSol }}</td>
+      <td>{{ item.vRealizacionDol }}</td>
+      <td>{{ item.fechaValorizacion }}</td>
+      <td>{{ item.idDistrito }}</td>
+      <td>{{ item.nCuotas }}</td>
+      <td>{{ item.cuotasAtrasadas }}</td>
     </tr>
   </tbody>
 </table>
