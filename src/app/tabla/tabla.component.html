@@ -1,0 +1,75 @@
+<mat-form-field>
+  <mat-label>Fecha :</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [(ngModel)]="fechaIngresada"
+    name="fechaIngresada"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button (click)="onSubmit()">Mostrar Fecha Formateada</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODIGOTCHN</th>
+      <th>CMONEDA</th>
+      <th>ndocumento</th>
+      <th>tapaterno</th>
+      <th>tamaterno</th>
+      <th>tnombres</th>
+      <th>dnacimiento</th>
+      <th>tdireccion</th>
+      <th>cubigeo</th>
+      <th>departamento</th>
+      <th>provincia</th>
+      <th>distrito</th>
+      <th>cinmueble</th>
+      <th>actividad</th>
+      <th>cuotasatrasdas</th>
+      <th>estado</th>
+      <th>SUELDO</th>
+      <th>fdesembolso</th>
+      <th>tipooperacion</th>
+      <th>S_INFOCORP</th>
+      <th>NVALORIZACION</th>
+      <th>V_EDIFICACION</th>
+      <th>V_PROPIEDAD</th>
+      <th>V_COMERCIAL</th>
+      <th>V_REALIZACIONSOL</th>
+      <th>V_REALIZACIONDOL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{ item.CODIGOTCHN }}</td>
+      <td>{{ item.CMONEDA }}</td>
+      <td>{{ item.ndocumento }}</td>
+      <td>{{ item.tapaterno }}</td>
+      <td>{{ item.tamaterno }}</td>
+      <td>{{ item.tnombres }}</td>
+      <td>{{ item.dnacimiento }}</td>
+      <td>{{ item.tdireccion }}</td>
+      <td>{{ item.cubigeo }}</td>
+      <td>{{ item.departamento }}</td>
+      <td>{{ item.provincia }}</td>
+      <td>{{ item.distrito }}</td>
+      <td>{{ item.cinmueble }}</td>
+      <td>{{ item.actividad }}</td>
+      <td>{{ item.cuotasatrasdas }}</td>
+      <td>{{ item.estado }}</td>
+      <td>{{ item.SUELDO }}</td>
+      <td>{{ item.fdesembolso }}</td>
+      <td>{{ item.tipooperacion }}</td>
+      <td>{{ item.S_INFOCORP }}</td>
+      <td>{{ item.NVALORIZACION }}</td>
+      <td>{{ item.V_EDIFICACION }}</td>
+      <td>{{ item.V_PROPIEDAD }}</td>
+      <td>{{ item.V_COMERCIAL }}</td>
+      <td>{{ item.V_REALIZACIONSOL }}</td>
+      <td>{{ item.V_REALIZACIONDOL }}</td>
+    </tr>
+  </tbody>
+</table>
