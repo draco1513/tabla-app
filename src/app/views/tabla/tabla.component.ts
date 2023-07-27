@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TablaService } from '../tabla-service.service';
+import { TablaService } from './tabla-service.service';
 import { format } from 'date-fns';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
