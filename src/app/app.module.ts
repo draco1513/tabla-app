@@ -11,16 +11,16 @@ import { AppComponent } from './app.component';
 import { TablaComponent } from './tabla/tabla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TablaComponent,
-    FooterComponent,
-    HeaderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
