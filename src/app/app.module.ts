@@ -11,12 +11,16 @@ import { AppComponent } from './app.component';
 import { TablaComponent } from './tabla/tabla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TablaComponent
+    TablaComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

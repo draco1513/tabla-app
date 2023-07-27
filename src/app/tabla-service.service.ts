@@ -18,12 +18,13 @@ export class TablaService {
     if (fecha) {
       url += '/' + fecha;
     }
+    console.log(url)
 
     // Agregar datos de autenticación básica en el encabezado de la solicitud
     const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + btoa('user:1e694cf7-61a9-4764-af61-26217a10eda9') // Reemplaza 'username' y 'password' con tus credenciales
+      'Authorization': 'Basic ' + btoa('user:541f3fbf-f78f-4987-a7a3-ae999b7bf5a7')
+      // Reemplaza 'username' y 'password' con tus credenciales 1e694cf7-61a9-4764-af61-26217a10eda9
     });
-
     return this.http.get<any[]>(url, { headers });
   }
 }
