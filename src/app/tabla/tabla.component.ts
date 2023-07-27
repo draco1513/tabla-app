@@ -24,17 +24,21 @@ export class TablaComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Datos');
 
     // Generar el archivo Excel
-    const excelBuffer: any = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const excelBuffer: any = XLSX.write(wb, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
 
     // Guardar el archivo usando file-saver
     const fechaFormateada = this.formatDate(new Date().toISOString());
     const excelFileName = `datos_${fechaFormateada}.xlsx`;
-    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const blob = new Blob([excelBuffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
     saveAs(blob, excelFileName);
   }
 
   ngOnInit() {
-
     this.loadData();
     this.tablaService.getTablaData().subscribe((data) => {
       this.data = data;
