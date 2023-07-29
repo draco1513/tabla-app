@@ -17,100 +17,107 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <Div class="row">
+    <div class="col">
+      <div class="table-container">
+        <table
+          class="table table-bordered table-striped table table-dark table-striped"
+        >
+          <!-- Contenido de la tabla aquí -->
+          <thead>
+            <tr>
+              <th>#</th>
+              <!-- Columna para enumerar las filas -->
 
-<Div class="row">
-  <div class="col">
-    <div class="table-container">
-      <table
-        class="table table-bordered table-striped table table-dark table-striped"
+              <th scope="col">CODIGOTCHN</th>
+              <th>CMONEDA</th>
+              <th>ndocumento</th>
+              <th>tapaterno</th>
+              <th>tamaterno</th>
+              <th>tnombres</th>
+              <th>dnacimiento</th>
+              <th>tdireccion</th>
+              <th>cubigeo</th>
+              <th>departamento</th>
+              <th>provincia</th>
+              <th>distrito</th>
+              <th>cinmueble</th>
+              <th>actividad</th>
+              <th>cuotasatrasdas</th>
+              <th>estado</th>
+              <th>SUELDO</th>
+              <th>fdesembolso</th>
+              <th>tipooperacion</th>
+              <th>S_INFOCORP</th>
+              <th>NVALORIZACION</th>
+              <th>V_EDIFICACION</th>
+              <th>V_PROPIEDAD</th>
+              <th>V_COMERCIAL</th>
+              <th>V_REALIZACIONSOL</th>
+              <th>V_REALIZACIONDOL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let item of data.slice(
+                  currentPage * pageSize,
+                  (currentPage + 1) * pageSize
+                );
+                let i = index
+              "
+            >
+              <td>{{ currentPage * pageSize + i + 1 }}</td>
+
+              <td>{{ item.codigoId }}</td>
+              <td>{{ item.moneda }}</td>
+              <td>{{ item.documento }}</td>
+              <td>{{ item.aPaterno }}</td>
+              <td>{{ item.aMaterno }}</td>
+              <td>{{ item.nombres }}</td>
+              <td>{{ item.fechaNacimiento }}</td>
+              <td>{{ item.direccion }}</td>
+              <td>{{ item.ubigeo }}</td>
+              <td>{{ item.departamento }}</td>
+              <td>{{ item.provincia }}</td>
+              <td>{{ item.distrto }}</td>
+              <td>{{ item.inmueble }}</td>
+              <td>{{ item.actividad }}</td>
+              <td>{{ item.cuotasAtrasada }}</td>
+              <td>{{ item.estado }}</td>
+              <td>{{ item.cuota }}</td>
+              <td>{{ item.sueldo }}</td>
+              <td>{{ item.fechaDesembolso }}</td>
+              <td>{{ item.tipoOperacion }}</td>
+              <td>{{ item.infocorp }}</td>
+              <td>{{ item.nValorizacion }}</td>
+              <td>{{ item.vEdificacion }}</td>
+              <td>{{ item.vPropiedad }}</td>
+              <td>{{ item.vComercial }}</td>
+              <td>{{ item.vRealizacionSol }}</td>
+              <td>{{ item.vRealizacionDol }}</td>
+              <td>{{ item.fechaValorizacion }}</td>
+              <td>{{ item.idDistrito }}</td>
+              <td>{{ item.nCuotas }}</td>
+              <td>{{ item.cuotasAtrasadas }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </Div>
+</div>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <mat-paginator
+        [length]="data.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)"
       >
-        <!-- Contenido de la tabla aquí -->
-        <thead>
-          <tr>
-            <th>#</th>
-            <!-- Columna para enumerar las filas -->
-
-            <th scope="col">CODIGOTCHN</th>
-            <th>CMONEDA</th>
-            <th>ndocumento</th>
-            <th>tapaterno</th>
-            <th>tamaterno</th>
-            <th>tnombres</th>
-            <th>dnacimiento</th>
-            <th>tdireccion</th>
-            <th>cubigeo</th>
-            <th>departamento</th>
-            <th>provincia</th>
-            <th>distrito</th>
-            <th>cinmueble</th>
-            <th>actividad</th>
-            <th>cuotasatrasdas</th>
-            <th>estado</th>
-            <th>SUELDO</th>
-            <th>fdesembolso</th>
-            <th>tipooperacion</th>
-            <th>S_INFOCORP</th>
-            <th>NVALORIZACION</th>
-            <th>V_EDIFICACION</th>
-            <th>V_PROPIEDAD</th>
-            <th>V_COMERCIAL</th>
-            <th>V_REALIZACIONSOL</th>
-            <th>V_REALIZACIONDOL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="
-              let item of data.slice(
-                currentPage * pageSize,
-                (currentPage + 1) * pageSize
-              );
-              let i = index
-            "
-          >
-            <td>{{ currentPage * pageSize + i + 1 }}</td>
-
-            <td>{{ item.codigoId }}</td>
-            <td>{{ item.moneda }}</td>
-            <td>{{ item.documento }}</td>
-            <td>{{ item.aPaterno }}</td>
-            <td>{{ item.aMaterno }}</td>
-            <td>{{ item.nombres }}</td>
-            <td>{{ item.fechaNacimiento }}</td>
-            <td>{{ item.direccion }}</td>
-            <td>{{ item.ubigeo }}</td>
-            <td>{{ item.departamento }}</td>
-            <td>{{ item.provincia }}</td>
-            <td>{{ item.distrto }}</td>
-            <td>{{ item.inmueble }}</td>
-            <td>{{ item.actividad }}</td>
-            <td>{{ item.cuotasAtrasada }}</td>
-            <td>{{ item.estado }}</td>
-            <td>{{ item.cuota }}</td>
-            <td>{{ item.sueldo }}</td>
-            <td>{{ item.fechaDesembolso }}</td>
-            <td>{{ item.tipoOperacion }}</td>
-            <td>{{ item.infocorp }}</td>
-            <td>{{ item.nValorizacion }}</td>
-            <td>{{ item.vEdificacion }}</td>
-            <td>{{ item.vPropiedad }}</td>
-            <td>{{ item.vComercial }}</td>
-            <td>{{ item.vRealizacionSol }}</td>
-            <td>{{ item.vRealizacionDol }}</td>
-            <td>{{ item.fechaValorizacion }}</td>
-            <td>{{ item.idDistrito }}</td>
-            <td>{{ item.nCuotas }}</td>
-            <td>{{ item.cuotasAtrasadas }}</td>
-          </tr>
-        </tbody>
-      </table>
+      </mat-paginator>
     </div>
   </div>
-</Div>
-<mat-paginator
-  [length]="data.length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="onPageChange($event)"
->
-</mat-paginator>
+</div>

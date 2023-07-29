@@ -1,11 +1,6 @@
-.table-container {
-  max-width: 100%;
-  overflow-x: auto;
-}
-.container {
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente el contenido */
-  align-items: center; /* Centrar verticalmente el contenido */
-  margin: 50px; /* Márgenes exteriores */
-  background-color: #f0f0f0; /* Color de fondo opcional */
+.table-fixed tbody td,
+.table-fixed thead > tr > th,
+.table-fixed tfoot > tr > td {
+  float: left;
+  border-bottom-width: 0;
 }
