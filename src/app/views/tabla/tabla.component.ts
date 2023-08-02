@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TablaService } from '../tabla-service.service';
+import { TablaService } from './tabla-service.service';
 import { format } from 'date-fns';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { PageEvent } from '@angular/material/paginator'; // Importa el módulo de paginación de Angular Material
 
 @Component({
   selector: 'app-tabla',
@@ -11,7 +12,9 @@ import { saveAs } from 'file-saver';
 })
 export class TablaComponent implements OnInit {
   data: any[] = [];
-
+  pageSizeOptions: number[] = [25, 50, 100];
+  pageSize = 25;
+  currentPage = 0;
   fechaIngresada: string = '';
 
   constructor(private tablaService: TablaService) { }
@@ -24,17 +27,25 @@ export class TablaComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Datos');
 
     // Generar el archivo Excel
-    const excelBuffer: any = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const excelBuffer: any = XLSX.write(wb, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
 
     // Guardar el archivo usando file-saver
     const fechaFormateada = this.formatDate(new Date().toISOString());
     const excelFileName = `datos_${fechaFormateada}.xlsx`;
-    const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const blob = new Blob([excelBuffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
     saveAs(blob, excelFileName);
   }
 
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+  }
   ngOnInit() {
-
     this.loadData();
     this.tablaService.getTablaData().subscribe((data) => {
       this.data = data;

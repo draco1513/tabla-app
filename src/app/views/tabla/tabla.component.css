@@ -1,0 +1,6 @@
+.table-fixed tbody td,
+.table-fixed thead > tr > th,
+.table-fixed tfoot > tr > td {
+  float: left;
+  border-bottom-width: 0;
+}

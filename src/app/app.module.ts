@@ -8,15 +8,21 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TablaComponent } from './tabla/tabla.component';
+import { TablaComponent } from './views/tabla/tabla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './views/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TablaComponent
+    TablaComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
