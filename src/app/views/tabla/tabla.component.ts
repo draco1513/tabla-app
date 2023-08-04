@@ -74,4 +74,10 @@ export class TablaComponent implements OnInit {
       this.data = data;
     });
   }
+
+
+
+
+
+
 }
